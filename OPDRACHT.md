@@ -80,7 +80,7 @@ Zorg ervoor dat het **exacte** commando `php artisan migrate:fresh --seed` werkt
  
 ```json
 [{
-  "trip_id": 1,
+  "id": 1,
   "title": "Off-Grid Camping in Jasper",
   "region": "west",
   "start_date": 2025-07-01,
