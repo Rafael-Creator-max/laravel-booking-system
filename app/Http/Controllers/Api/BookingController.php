@@ -17,12 +17,19 @@ class BookingController extends Controller
     }
     public function store(Request $request)
     {
+        
         // Check op token
         if (!$request->has('token')) {
             return response()->json(['error' => 'Token is vereist.'], 401);
         }
+        
 
         $expectedToken = md5($request->email . 'canadarocks');
+        
+        \Log::debug('EMAIL:', [$request->email]);
+        \Log::debug('EXPECTED:', [$expectedToken]);
+        \Log::debug('GIVEN:', [$request->token]);
+
 
         if ($request->token !== $expectedToken) {
             return response()->json(['error' => 'Token is ongeldig.'], 403);
